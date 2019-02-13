@@ -1,0 +1,44 @@
+Query 1:
+   
+   SELECT
+          C.customerName, 
+          P.checkNumber, 
+          P.paymentDate,
+          P.amount
+   FROM 
+          customer C INNER JOIN payments P
+   ON     C.customerNumber = P.cuastomerNumber 
+   WHERE  C.customerNumber = 1001;
+          
+Query 2:
+   
+   SELECT
+          emnployeeNumber,
+          firstName,
+          lastName
+   FROM
+          employees
+   WHERE  reportsTo = 1001;
+  
+Query 3:
+    
+    SELECT 
+          customerName,
+          phone,
+          SUM(P.amount) AS TOTAL AMOUNT
+    FROM 
+          customers C INNER JOIN payments P
+    WHERE C.customerNumber = P.customerNumber 
+    AND   C.credit > 10000;
+    
+Query 4:
+
+    SELECT 
+          O.orderNumber,
+          O.orderDate,
+          OD.productCode,
+          OD.quantityOrdered,
+          OD.priceEach
+    FROM
+          orders O INNER JOIN orderdetails OD INNER JOIN customers C
+    WHERE C.customerNumber = 1001; 
